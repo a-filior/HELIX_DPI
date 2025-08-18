@@ -107,7 +107,7 @@ public class PatientIdentifiant {
         this.typeLibelle = typeLibelle;
     }
     
-    public static PatientIdentifiant getIPP(int patId){
+    public static PatientIdentifiant getIdentifiantPI(int patId){
         return ((PatientIdentifiantDAO) AbstractDAOFactory.getFactory(AbstractDAOFactory.SQL_DAO_FACTORY).getPatientIdentifiantDAO()).getIPPByPatId(patId);
     }
     

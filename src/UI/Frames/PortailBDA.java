@@ -8,6 +8,7 @@ package UI.Frames;
 import NOYAU.patient.Patient;
 import NOYAU.patient.Venue;
 import NOYAU.structure.Intervenant;
+import UI.Static.IHMColors;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
@@ -48,14 +49,15 @@ public class PortailBDA extends javax.swing.JFrame {
         intervenantCourant = p;
         persoString = intervenantCourant.getPrenom().substring(0, 1).toUpperCase() + "-" + intervenantCourant.getNom().toUpperCase();
 
-        //affichage plein écran sans les décorations du frame.
-        this.setExtendedState(PortailBDA.MAXIMIZED_BOTH);
+        //affichage sans les décorations du frame.
         this.setUndecorated(true);
 
 //        daoPatient = new DAOPatient();
         initComponents();
         this.texteSaisie.grabFocus();
-
+        
+        //affichageplein écran
+        this.setExtendedState(PortailBDA.MAXIMIZED_BOTH);
     }
 
     /**
@@ -99,7 +101,7 @@ public class PortailBDA extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(156, 193, 234));
+        jPanel1.setBackground(IHMColors.GLOBAL_BACKGROUND_COLOR);
 
         deconectBut.setBackground(new java.awt.Color(102, 102, 102));
         deconectBut.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,8 +126,8 @@ public class PortailBDA extends javax.swing.JFrame {
         JPanelPatient.setBackground(new java.awt.Color(102, 102, 102));
         JPanelPatient.setLayout(new java.awt.BorderLayout());
 
-        jList1.setBackground(new java.awt.Color(204, 204, 255));
-        jList1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "      NOM - Prénom", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(0, 0, 0))); // NOI18N
+        jList1.setBackground(IHMColors.LIST_BACKGROUND_COLOR_1);
+        jList1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "      NOM - Prénom", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         jList1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jList1.setForeground(new java.awt.Color(255, 255, 255));
         jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -145,7 +147,7 @@ public class PortailBDA extends javax.swing.JFrame {
         infoPatient.setBackground(new java.awt.Color(156, 193, 234));
         infoPatient.setLayout(new java.awt.BorderLayout());
 
-        jPanel8.setBackground(new java.awt.Color(156, 193, 234));
+        jPanel8.setBackground(IHMColors.LIST_BACKGROUND_COLOR_2);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -160,7 +162,7 @@ public class PortailBDA extends javax.swing.JFrame {
 
         infoPatient.add(jPanel8, java.awt.BorderLayout.LINE_END);
 
-        jPanel6.setBackground(new java.awt.Color(156, 193, 234));
+        jPanel6.setBackground(IHMColors.LIST_BACKGROUND_COLOR_2);
 
         sejourPrecBut.setBackground(new java.awt.Color(153, 153, 153));
         sejourPrecBut.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -221,10 +223,10 @@ public class PortailBDA extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(156, 193, 234));
         jPanel7.setLayout(new java.awt.BorderLayout());
 
-        jPanel4.setBackground(new java.awt.Color(156, 193, 234));
+        jPanel4.setBackground(IHMColors.LIST_BACKGROUND_COLOR_2);
         jPanel4.setLayout(new java.awt.BorderLayout());
 
-        jScrollPane2.setBackground(new java.awt.Color(156, 193, 234));
+        jScrollPane2.setBackground(IHMColors.LIST_BACKGROUND_COLOR_2);
         jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SEJOURS OUVERTS :", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         jScrollPane2.setPreferredSize(new java.awt.Dimension(478, 460));
 
@@ -234,20 +236,20 @@ public class PortailBDA extends javax.swing.JFrame {
 
         jPanel4.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
-        jPanel7.add(jPanel4, java.awt.BorderLayout.CENTER);
-
         jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INFORMATIONS PATIENT :", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         jScrollPane3.setMinimumSize(new java.awt.Dimension(37, 60));
         jScrollPane3.setPreferredSize(new java.awt.Dimension(275, 190));
 
         infoPatientText.setEditable(false);
-        infoPatientText.setBackground(new java.awt.Color(156, 193, 234));
+        infoPatientText.setBackground(IHMColors.LIST_BACKGROUND_COLOR_2);
         infoPatientText.setColumns(20);
         infoPatientText.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         infoPatientText.setRows(6);
         jScrollPane3.setViewportView(infoPatientText);
 
-        jPanel7.add(jScrollPane3, java.awt.BorderLayout.PAGE_START);
+        jPanel4.add(jScrollPane3, java.awt.BorderLayout.PAGE_START);
+
+        jPanel7.add(jPanel4, java.awt.BorderLayout.CENTER);
 
         infoPatient.add(jPanel7, java.awt.BorderLayout.CENTER);
 
@@ -312,7 +314,7 @@ public class PortailBDA extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IDpersonnel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deconectBut))
-                .addGap(52, 52, 52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -351,7 +353,7 @@ public class PortailBDA extends javax.swing.JFrame {
     private void deconectButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deconectButActionPerformed
         int i = JOptionPane.showConfirmDialog(this, "Voulez-vous quitter la session ? ", "ATTENTION", JOptionPane.YES_NO_OPTION);
         if (i == 0) {
-            new FenetreConnexion().setVisible(true);
+            new JFrameLogin().setVisible(true);
             this.setVisible(false);
             this.dispose();
         }
@@ -378,8 +380,8 @@ public class PortailBDA extends javax.swing.JFrame {
 
                 //permet d'afficher les informations du patients dans le jTextArea nommé InfoPatientText.
                 String texte;
-                if(patient.getIPP() != null){
-                    texte = "IPP : " + patient.getIPP() +  " Nom d'usage :   " + patient.getNomUsuel()+ "     Nom de naissance :   "
+                if(patient.trouverlIPP() != null){
+                    texte = "IPP : " + patient.trouverlIPP() +  " Nom d'usage :   " + patient.getNomUsuel()+ "     Nom de naissance :   "
                             + patient.getNomNaissance() + "\n Prénom :    " + patient.getPrenomPrincipal()
                             + "\n Date de naissance :    " + patient.getDateNaissance() + "    Sexe : " + patient.getSexe().toString();
                 } else {

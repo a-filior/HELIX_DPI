@@ -23,16 +23,18 @@ import java.util.List;
 import BACASABLE_UI.Fenetre1;
 import INTEROP.FACTORIES.ADTFactory;
 import INTEROP.FACTORIES.ADT_v25;
-import INTEROP.HL7Services;
 import NOYAU.configuration.InitialisationApplication;
 import NOYAU.configuration.ParametrageInterop;
 import NOYAU.patient.Patient.Sexe;
 import UI.Frames.FenetreConnexion;
+import UI.Frames.JFrameLogin;
 import UI.Frames.PortailAdministrateur;
 import UI.Frames.PortailBDA;
+import UI.Static.IHMColors;
 import ca.uhn.hl7v2.model.AbstractMessage;
 import ca.uhn.hl7v2.model.v23.message.ADT_A01;
 import javax.swing.JOptionPane;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -46,12 +48,16 @@ public class Projet_DPI_2025 {
      */
     public static void main(String[] args) throws IOException {
      
-        //FenetreConnexion fc = new FenetreConnexion();
-        //fc.setVisible(true);
+        IHMColors.initColors();
 
+
+        JFrameLogin frame = new JFrameLogin();
+        
+//        Login frame = new Login();
         
         
-        
+        frame.setVisible(true);
+
         
 //    Fenetre pf = new Fenetre();
 
@@ -123,18 +129,18 @@ public class Projet_DPI_2025 {
 //           System.out.println(pid.toString());
 //        });
         
-        System.out.println(Patient.getPatient("10000001","PI").display());
-
-        
-        String message = "MSH|^~\\&|ADT_MAGAM|MAGAM|GAM|GAM|20240205161849||ADT^A28^ADT_A05|20240205161849463|P|2.5^FRA^2.6|||||FRA|8859/1|FRA\n" +
-"EVN||20240205161849||||20240205161849\n" +
-"PID|||30340694^^^MAGAM^PI||AUBRAC^MICHELLE^^^Mme^^L||19720206000000|F|||106 RUE JOUVENET^^ROUEN^^76000^FRA^H|||||||||||||||FRA^FRANCE^ISO 3166 alpha-3||FRA^FRANCE^ISO 3166 alpha-3||||PROV\n" +
-"PV1||N";
-        
-        InitialisationApplication.initialiserLesApplications();
+//        System.out.println(Patient.getPatient("10000001","PI").display());
+//
+//        
+//        String message = "MSH|^~\\&|ADT_MAGAM|MAGAM|GAM|GAM|20240205161849||ADT^A28^ADT_A05|20240205161849463|P|2.5^FRA^2.6|||||FRA|8859/1|FRA\n" +
+//"EVN||20240205161849||||20240205161849\n" +
+//"PID|||30340694^^^MAGAM^PI||AUBRAC^MICHELLE^^^Mme^^L||19720206000000|F|||106 RUE JOUVENET^^ROUEN^^76000^FRA^H|||||||||||||||FRA^FRANCE^ISO 3166 alpha-3||FRA^FRANCE^ISO 3166 alpha-3||||PROV\n" +
+//"PV1||N";
+//        
+//        InitialisationApplication.initialiserLesApplications();
 ////
-        HL7Sender sender = new HL7Sender();
-        sender.sendMessage(message, "localhost", 4242, false);  
+//        HL7Sender sender = new HL7Sender();
+//        sender.sendMessage(message, "localhost", 4242, false);  
         
         
         

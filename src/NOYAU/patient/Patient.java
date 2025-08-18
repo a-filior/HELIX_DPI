@@ -168,7 +168,7 @@ public class Patient {
    
     
     public static Patient getPatient(String IPP, String codeType){
-        return ((PatientDAO) AbstractDAOFactory.getFactory(AbstractDAOFactory.SQL_DAO_FACTORY).getPatientDAO()).get("10000001","PI");
+        return ((PatientDAO) AbstractDAOFactory.getFactory(AbstractDAOFactory.SQL_DAO_FACTORY).getPatientDAO()).get(IPP,codeType);
     }
     
     public static List<Patient> getPatientByNom(String nom){
@@ -207,15 +207,32 @@ public class Patient {
         return res.toString();
     }
     
-    public PatientIdentifiant getIPP(){
-        return PatientIdentifiant.getIPP(this.patId);
+    public String getIPP(){
+        if(PatientIdentifiant.getIdentifiantPI(this.patId) != null){
+            return PatientIdentifiant.getIdentifiantPI(this.patId).getValeur();
+        } else {
+            return null;
+        }
+    }
+    
+    public String trouverlIPP(){
+        String s = null;
+        if(this.lesIdentifiants != null){
+            for(int i = 0; i < this.lesIdentifiants.size(); i++){
+                if(this.lesIdentifiants.get(i).getTypeCode().equals("PI")){
+                    return this.getLesIdentifiants().get(i).getValeur();
+                }
+            }
+        }
+        return s;
     }
     
     public enum Sexe {
 
         M("Male"),
         F("Female"),
-        U("Intéterminé");
+        U("Intéterminé"),
+        O("Autre");
 
         private final String name;
 
@@ -226,6 +243,6 @@ public class Patient {
         public String getName(){
             return this.name;
         }
-
+        
     }
 }

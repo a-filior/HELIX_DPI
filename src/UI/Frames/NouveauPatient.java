@@ -145,7 +145,7 @@ public class NouveauPatient extends javax.swing.JFrame implements ActionListener
         jLabelSexe.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelSexe.setText("SEXE* :");
 
-        jComboBoxSexe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "indeterminé", "Homme", "Femme" }));
+        jComboBoxSexe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "indeterminé", "Homme", "Femme","Autre" }));
 
         jButtonAjouter.setBackground(new java.awt.Color(153, 153, 153));
         jButtonAjouter.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -340,6 +340,10 @@ public class NouveauPatient extends javax.swing.JFrame implements ActionListener
                     case "Femme":
                         sexe = Patient.Sexe.F;
                         sexeHL7 = 'F';
+                        break;
+                    case "Autre":
+                        sexe = Patient.Sexe.O;
+                        sexeHL7 = 'O';
                         break;
                     default:
                         sexe = Patient.Sexe.U;

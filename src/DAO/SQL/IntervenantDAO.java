@@ -28,8 +28,8 @@ public class IntervenantDAO extends DAO<Intervenant>{
     public boolean insert(Intervenant obj) {
         boolean check;
         try {
-            String requete = "INSERT INTO dpi.INTERVENANT (int_matricule, int_nom, int_prenom) "
-                    + "VALUES('" + obj.getMatricule() + "', '" + obj.getNom() + "', '" + obj.getPrenom() + "');";           
+            String requete = "INSERT INTO dpi.INTERVENANT (int_matricule, int_nom, int_prenom, int_supprime) "
+                    + "VALUES('" + obj.getMatricule() + "', '" + obj.getNom() + "', '" + obj.getPrenom() + "', 0);";           
                      
             this.connect.createStatement( 
                 ResultSet.TYPE_SCROLL_INSENSITIVE,  

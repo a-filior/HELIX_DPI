@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class ConnexionBD {
     private static Connection connect;
-    private static String url = "jdbc:mysql://localhost/dpi";
+    private static String url = "jdbc:mysql://localhost/dpi?allowMultiQueries=true";
     private static String login = "root";
     private static String password = "password";
 
